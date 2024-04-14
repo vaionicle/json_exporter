@@ -17,6 +17,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"time"
+	"strings"
 
 	"github.com/go-kit/log"
 	"github.com/go-kit/log/level"
@@ -145,7 +146,7 @@ func extractValue(logger log.Logger, data []byte, path string, enableJSONOutput 
 		return res, nil
 	}
 
-	return buf.String(), nil
+	return strings.TrimSpace(buf.String()), nil
 }
 
 // Returns the list of labels created from the list of provided json paths
